@@ -22,6 +22,11 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
+
 
 import java.sql.Connection;
 
@@ -95,7 +100,9 @@ public class JoinServiceTest {
 
     @Test
     @DisplayName("회원가입 통합 테스트")
-    void joinTest2() {
-
+    void joinTest2() throws Exception {
+        mockMvc.perform(post("/member/join")
+                .param("userId", "user01")
+        ).andDo(print());
     }
 }
