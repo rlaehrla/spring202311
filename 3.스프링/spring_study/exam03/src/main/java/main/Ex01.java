@@ -3,6 +3,7 @@ package main;
 import config.AppCtx;
 import config.AppCtx2;
 import config.AppCtx3;
+import config.AppCtx4;
 import models.member.JoinService;
 import models.member.ListService;
 import models.member.Member;
@@ -12,10 +13,10 @@ import java.time.LocalDateTime;
 
 public class Ex01 {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx2.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx4.class);
 
-        JoinService joinService = ctx.getBean("joinService", JoinService.class);
-        ListService listService = ctx.getBean("listService", ListService.class);
+        JoinService joinService = ctx.getBean(JoinService.class);
+        ListService listService = ctx.getBean(ListService.class);
 
         Member member = new Member();
         member.setUserId("user01");
