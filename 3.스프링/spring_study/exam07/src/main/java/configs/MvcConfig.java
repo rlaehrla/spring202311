@@ -31,6 +31,10 @@ public class MvcConfig implements WebMvcConfigurer {
         return joinValidator;
     }
      */
+    @Bean
+    public MemberOnlyInterceptor memberOnlyInterceptor() {
+        return new MemberOnlyInterceptor();
+    }
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
