@@ -37,6 +37,11 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
     @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(memberOnlyInterceptor()).addPathPatterns("/mypage/**");
+    }
+
+    @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
         // 모든 요청 -> 컨트롤러 빈, 없는 경우 -> 정적 자원 경로(css, js, 이미지)
