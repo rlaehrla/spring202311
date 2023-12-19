@@ -34,10 +34,11 @@ public class MemberDao {
 
     public List<Member> getList(MemberSearch search) {
         LocalDate edate = search.getEdate();
-        LocalDate newEdate = edate.plusDays(1);
 
-        search.setEdate(newEdate);
-
+        if (edate != null) {
+            LocalDate newEdate = edate.plusDays(1);
+            search.setEdate(newEdate);
+        }
         return mapper.getList(search);
     }
 }
