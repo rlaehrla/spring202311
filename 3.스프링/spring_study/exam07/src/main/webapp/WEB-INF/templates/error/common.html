@@ -1,1 +1,9 @@
-<h1>에러 발생</h1>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/common}">
+
+<main layout:fragment="content">
+    <h1 th:text="${message}"></h1>
+</main>
+
+</html>
