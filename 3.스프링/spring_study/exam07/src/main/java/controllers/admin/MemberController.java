@@ -3,6 +3,7 @@ package controllers.admin;
 import lombok.RequiredArgsConstructor;
 import models.member.Member;
 import models.member.MemberDao;
+import models.member.MemberNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -39,7 +40,8 @@ public class MemberController {
     public String errorTest() {
         boolean result = true;
         if (result) {
-            throw new RuntimeException("예외 발생!!!!!");
+            //throw new RuntimeException("예외 발생!!!!!");
+            throw new MemberNotFoundException();
         }
         return "admin/member/info";
     }
@@ -54,7 +56,6 @@ public class MemberController {
 
         return "error/common";
     }
-
-     */
+    */
 
 }
