@@ -42,4 +42,15 @@ public class ApiMemberController {
             ).toList();
         return members;
     }
+
+    @GetMapping("/message")
+    public String message() {
+
+        return "안녕하세요!";
+    }
+
+    @GetMapping("/process")
+    public void process() {
+        System.out.println("처리......");
+    }
 }
