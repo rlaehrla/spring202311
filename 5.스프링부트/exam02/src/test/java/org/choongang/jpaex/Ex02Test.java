@@ -33,5 +33,42 @@ public class Ex02Test {
 
         System.out.println(member);
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        member.setName("(수정)사용자01");
+        em.flush();
+        em.clear();
+
+        member = em.find(Member.class, member.getSeq());
+        System.out.println(member);
+
+    }
+
+    @Test
+    void test2() {
+        Member member = new Member();
+        member.setEmail("user01@test.org");
+        member.setName("사용자01");
+        member.setPassword("12345678");
+
+        em.persist(member);
+        em.flush();
+
+        System.out.println(member);
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        member.setName("(수정)사용자01");
+        em.flush();
+
+        System.out.println(member);
     }
 }
