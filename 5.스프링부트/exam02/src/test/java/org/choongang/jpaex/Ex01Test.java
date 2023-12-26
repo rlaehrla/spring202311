@@ -41,7 +41,7 @@ public class Ex01Test {
         member.setEmail("user01@test.org");
         member.setName("사용자01");
         member.setPassword("12345678");
-        member.setCreatedAt(LocalDateTime.now());
+        //member.setCreatedAt(LocalDateTime.now());
 
         em.persist(member); // 영속성 컨텍스트에 영속상태 - 변화 감지 시작
         em.flush();

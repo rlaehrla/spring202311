@@ -17,8 +17,8 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name="USERS", indexes = @Index(name = "idx_member_createdAt", columnList = "createdAt DESC"))
-@EntityListeners(AuditingEntityListener.class)
-public class Member {
+//@EntityListeners(AuditingEntityListener.class) 공통속성 Base로 따로 작성
+public class Member extends Base{
     @Id @GeneratedValue
     private Long seq;
     private String email;
@@ -30,7 +30,7 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private MemberType type;
-
+/* 공통속성 Base로 따로 작성
     //@CreationTimestamp // INSERT SQL 실행시
     @CreatedDate
     private LocalDateTime createdAt;
@@ -38,6 +38,7 @@ public class Member {
     //@UpdateTimestamp // UPDATE SQL 실행시
     @LastModifiedDate
     private LocalDateTime modifiedAt;
+ */
 
     //@Temporal(TemporalType.DATE) // 날짜
     //@Temporal(TemporalType.TIME) // 시간
