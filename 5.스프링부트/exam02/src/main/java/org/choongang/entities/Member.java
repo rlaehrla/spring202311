@@ -21,16 +21,25 @@ import java.util.Date;
 public class Member extends Base{
     @Id @GeneratedValue
     private Long seq;
+
+    @Column(length = 80, unique = true, nullable = false)
     private String email;
+
+    @Column(length = 40, nullable = false) // false로 해야 db에 notnull 조건 걸림
     private String name;
+
+    @Column(length = 65, name="userPw", nullable = false) // DB에 작성되는 컬럼명
     private String password; // varchar2
+
     //@Lob
     @Transient
     private String introduction; // CLOB
 
     @Enumerated(EnumType.STRING)
+    @Column(length = 10)
     private MemberType type;
-/* 공통속성 Base로 따로 작성
+
+/*  공통속성 Base로 따로 작성
     //@CreationTimestamp // INSERT SQL 실행시
     @CreatedDate
     private LocalDateTime createdAt;
